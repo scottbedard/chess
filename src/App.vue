@@ -2,22 +2,36 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html,
+body {
+    height: 100%;
+}
 </style>
 
 <template>
-    <div id="app">
-        <img alt="Vue logo" src="./assets/logo.png">
-        <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div class="container flex flex-wrap mx-auto p-4" id="app">
+        <!-- board -->
+        <main class="p-4 w-full md:w-3/4">
+            <Board />
+        </main>
+
+        <!-- sidebar -->
+        <aside class="p-4 w-full md:w-1/4">
+            <Sidebar />
+        </aside>
     </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue';
+import Board from './Board.vue';
+import Sidebar from './Sidebar.vue';
 
 export default {
-    name: 'app',
     components: {
-        HelloWorld,
+        Board,
+        Sidebar,
     },
+    name: 'app',
 };
 </script>

@@ -24,6 +24,7 @@ module.exports = {
     },
     root: true,
     rules: {
+        'max-len': 0,
         'indent': ['error', 4],
         'no-console': production ? 'error' : 'off',
         'no-debugger': production ? 'error' : 'off',
