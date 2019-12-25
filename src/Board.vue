@@ -1,4 +1,11 @@
 <style scoped>
+    /*
+        this pseudo element is just a cross-browser trick to create
+        responsive squares. percentage padding and margin values
+        are always relative to the element's width, regardless of
+        the side being padded. so a padding bottom of 100% (pb-full)
+        will responsively make an element as tall as it is wide.
+    */
     a:before {
         content: '';
         @apply block pb-full;
