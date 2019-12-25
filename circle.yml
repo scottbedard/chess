@@ -16,7 +16,7 @@ jobs:
             - "node_modules"
       - run:
           name: Test
-          command: test:unit --maxWorkers=2 --coverage
+          command: yarn test:unit --maxWorkers=2 --coverage
       - run:
           name: Codecov
           command: bash <(curl -s https://codecov.io/bash) -cF javascript
