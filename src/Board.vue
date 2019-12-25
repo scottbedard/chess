@@ -17,17 +17,21 @@
 </style>
 
 <template>
-    <div class="max-w-2xl mx-auto">
-        <div class="bg-gray-800 flex flex-wrap text-gray-300 text-xs">
+    <div class="max-w-xl mx-auto">
+        <div class="bg-gray-800 flex flex-wrap font-bold text-gray-300 text-xs sm:text-sm lg:text-base">
             <a
                 v-for="square in squares"
                 class="relative w-1/8"
                 href="#"
+                :data-square="square"
                 :key="square"
-                @click.prevent>
+                @click.prevent="highlight(square)">
                 <div
                     v-text="square"
-                    class="absolute flex h-full items-center justify-center left-0 top-0 w-full hover:border-2 hover:border-red-500"
+                    class="absolute flex h-full items-center justify-center left-0 top-0 w-full hover:border-4 hover:border-red-500"
+                    :class="{
+                        'border-4 border-red-500': highlighted.includes(square),
+                    }"
                 />
             </a>
         </div>
@@ -44,5 +48,13 @@ export default {
             return ranks.reduce((acc, r) => acc.concat(files.map(f => `${f}${r}`)), []);
         },
     },
+    methods: {
+        highlight(square) {
+            this.$emit('highlight', square);
+        },
+    },
+    props: [
+        'highlighted',
+    ],
 };
 </script>
